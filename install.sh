@@ -12,3 +12,7 @@ command -v make >/dev/null 2>&1 || { echo >&2 "I require bundle but it's not ins
 command -v /usr/local/bin/bundle >/dev/null 2>&1 || { echo >&2 "I require bundle but it's not installed.  Intalling Bundle."; sudo gem install bundle; sudo /usr/local/bin/bundle install; }
 
 chef-solo -c solo.rb -j solo.json
+
+## --- Reload Web App django
+for i in $(ps aux|grep python|grep runserver|awk {'print $2'});do kill -9 $i;done
+/bin/python /app/public/greetings/manage.py runserver 0.0.0.0:8000 &

@@ -18,6 +18,7 @@ include_recipe 'openssh'
 package [ 'ntp',
           'sysstat',
           'git',
+          'python-django',
           'nginx' ] do
   action :install
 end
