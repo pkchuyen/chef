@@ -5,6 +5,6 @@
 		"sudo"
 	],
 	"ssh_keys": [
-		"your_public_ssh_key"
+		"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCQX9gHr7UyOuGz6huyzsZvrWfFzwMGsWqlOkYmPr+Wf9gzIHTCD/3m1vlrukXkoJwpKKgcPTFAkdpfI4ggcBHrWvwNp0FDQSNfBExY8NTob3M1n4hT0G7lkGI3dtpR/phP2fDLg2cXETThl/WeBlRSp5FJYY7ypqKNoAIAovUrBmLu+OHPzEa/dVX3MSFrkb2rBwO96CCsvKzI0fp0mT9wLKw+xaREpEz/6+TxEY0dhrWTmzd8x0RZdrWGNsjkdtCAVl8sBDWVOT5n/jx7iNb2ydm4CoiD46oblCBDzdTwhP9JbzXEsNoNEpQXoJSiEHPJW1Ziu2QTkPidLPNiWat"
     ]
 } 
