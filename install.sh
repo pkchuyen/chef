@@ -12,6 +12,10 @@ command -v ruby >/dev/null 2>&1 || { echo >&2 "I require chef but it's not insta
 command -v make >/dev/null 2>&1 || { echo >&2 "I require bundle but it's not installed.  Intalling Bundle."; yum install -y make gcc; sudo gem install bundle; sudo /usr/local/bin/bundle install; }
 command -v /usr/local/bin/bundle >/dev/null 2>&1 || { echo >&2 "I require bundle but it's not installed.  Intalling Bundle."; sudo gem install bundle; sudo /usr/local/bin/bundle install; }
 
+# check environment _PATH to detect local or remote deploy to get the proper _PATH
+[[ ! -n $_PATH ]] && export _PATH=${1} || :
+
+# execute chef-solo to apply cookbook
 chef-solo -c $_PATH/solo.rb -j $_PATH/solo.json
 
 ## --- Reload Web App django

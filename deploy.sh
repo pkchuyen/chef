@@ -23,7 +23,7 @@ case $1 in
         export _PATH=/home/deployuser/chef
         export _REMOTEHOST="${2:-deployuser@<default-hostname>}"
         chmod 0600 /var/jenkins_home/workspace/deploy.live/key/deployuser
-        ssh -i /var/jenkins_home/workspace/deploy.live/key/deployuser deployuser@$_REMOTEHOST sudo /home/deployuser/chef/install.sh
+        ssh -i /var/jenkins_home/workspace/deploy.live/key/deployuser deployuser@$_REMOTEHOST sudo /home/deployuser/chef/install.sh $_PATH
     ;;
     *)
         echo "Wrong argurments."
