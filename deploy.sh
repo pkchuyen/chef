@@ -17,19 +17,16 @@ fi
 case $1 in 
     local)
         export _PATH=$PWD
+        source $_PATH/install.sh
     ;;
     remote)
         export _PATH=/home/deployuser/chef
         export _REMOTEHOST="${2:-deployuser@<default-hostname>}"
+        chmod 0600 /var/jenkins_home/workspace/deploy.live/key/deployuser
+        ssh -i /var/jenkins_home/workspace/deploy.live/key/deployuser deployuser@$_REMOTEHOST sudo /home/deployuser/chef/install.sh
     ;;
     *)
         echo "Wrong argurments."
         exit;
     ;;
 esac
-
-echo $_PATH
-echo $_REMOTEHOST
-
-# installation process
-source $_PATH/install.sh
