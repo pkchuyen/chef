@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+set -e
 
 # This runs as root on the server
 # Chef-solo install
@@ -11,8 +12,8 @@ command -v ruby >/dev/null 2>&1 || { echo >&2 "I require chef but it's not insta
 command -v make >/dev/null 2>&1 || { echo >&2 "I require bundle but it's not installed.  Intalling Bundle."; yum install -y make gcc; sudo gem install bundle; sudo /usr/local/bin/bundle install; }
 command -v /usr/local/bin/bundle >/dev/null 2>&1 || { echo >&2 "I require bundle but it's not installed.  Intalling Bundle."; sudo gem install bundle; sudo /usr/local/bin/bundle install; }
 
-chef-solo -c solo.rb -j solo.json
+chef-solo -c $_PATH/solo.rb -j $_PATH/solo.json
 
 ## --- Reload Web App django
-for i in $(ps aux|grep python|grep runserver|awk {'print $2'});do kill -9 $i;done
-/bin/python /app/public/greetings/manage.py runserver 0.0.0.0:8000 &
+# for i in $(ps aux|grep python|grep runserver|awk {'print $2'});do kill -9 $i;done
+# /bin/python /app/public/greetings/manage.py runserver 0.0.0.0:8000 &
