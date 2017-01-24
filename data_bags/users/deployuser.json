@@ -1,0 +1,10 @@
+{
+	"id": "deployuser",
+	"password": "$1$7scRRTMp$9LYVgkAe1HgE0kHvbZxXU0",  // Aey1pieceesu
+	"groups": [
+		"sudo"
+	],
+	"ssh_keys": [
+		"your_public_ssh_key"
+    ]
+} 
