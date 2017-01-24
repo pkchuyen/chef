@@ -17,8 +17,6 @@ include_recipe 'openssh'
 # --- Install packages we need ---
 package [ 'ntp',
           'sysstat',
-          'php',
-          'php-fpm',
           'git',
           'nginx' ] do
   action :install
